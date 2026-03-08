@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About – Smart EA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .page-wrap { max-width: 720px; margin: 0 auto; padding: 140px 24px 100px; display: flex; flex-direction: column; gap: 64px; }
+    .page-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #5b8fff; margin-bottom: 12px; }
+    .page-title { font-family: 'Outfit', sans-serif; font-size: 3rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 16px; }
+    .page-sub { color: #8b8fa8; font-size: 1rem; font-weight: 300; line-height: 1.7; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .about-card { background: #111318; border: 1px solid #1e2130; border-radius: 16px; padding: 28px; }
+    .about-card-icon { font-size: 1.4rem; margin-bottom: 12px; }
+    .about-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; color: #f0f2ff; }
+    .about-card p { font-size: 0.85rem; color: #8b8fa8; font-weight: 300; line-height: 1.7; }
+    .about-mission { background: linear-gradient(160deg, #0d0f1a, #090b12); border: 1px solid rgba(59,110,255,0.15); border-radius: 20px; padding: 40px; }
+    .about-mission h2 { font-family: 'Outfit', sans-serif; font-size: 1.6rem; font-weight: 800; margin-bottom: 16px; letter-spacing: -0.02em; }
+    .about-mission p { font-size: 0.92rem; color: #8b8fa8; font-weight: 300; line-height: 1.8; }
+    @media(max-width: 600px) { .about-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<header>
+  <a href="index.html" class="logo-link"><img src="images/logo.png" alt="Smart EA" class="header-logo"></a>
+  <a href="https://app.smarteatrading.com" target="_blank" class="header-app-btn">Open App →</a>
+</header>
+<div class="page-wrap">
+  <div>
+    <p class="page-label">Who We Are</p>
+    <h1 class="page-title">About Smart EA</h1>
+    <p class="page-sub">Smart EA was built by traders, for traders. We wanted a way to trade gold algorithmically without needing to be glued to a screen — so we built it ourselves and made it available to everyone.</p>
+  </div>
+
+  <div class="about-mission">
+    <h2>Our Mission</h2>
+    <p>We believe algorithmic trading shouldn't be reserved for hedge funds and institutions. Smart EA gives retail traders access to a professional-grade automated system that trades XAU/USD on MetaTrader 5 — running 24/5 in the cloud, with no technical knowledge required.</p>
+  </div>
+
+  <div class="about-grid">
+    <div class="about-card">
+      <h3>Built on Real Data</h3>
+      <p>Every strategy is backtested on real tick data with 100% history quality before it ever touches a live account.</p>
+    </div>
+    <div class="about-card">
+      <h3>Always On</h3>
+      <p>Smart EA runs entirely in the cloud. No VPS, no leaving your device on — just connect and let it trade.</p>
+    </div>
+    <div class="about-card">
+      <h3>Your Capital, Your Control</h3>
+      <p>We never touch your funds. Smart EA connects to your own broker account — you stay in full control at all times.</p>
+    </div>
+    <div class="about-card">
+      <h3>Simple Setup</h3>
+      <p>Get up and running in minutes with no technical knowledge needed. Just connect your MT5 account and activate your licence.</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
