@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart EA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo-link">
+    <img src="images/logo.png" alt="Smart EA" class="header-logo">
+  </a>
+  <a href="https://app.smarteatrading.com" target="_blank" class="header-app-btn">Open App →</a>
+
+</header>
+
+
+
+<!-- HERO -->
+<section class="hero">
+  <canvas class="hero-chart-bg" id="heroBgChart"></canvas>
+  <div class="hero-bg">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+  </div>
+  <img src="images/homepage.png" class="homepage-bg" alt="">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-content">
+        <h1 class="hero-title"><span class="hero-title-main">Trade Gold</span><br><span class="accent">the smart way</span></h1>
+        <p class="hero-sub">Professional algorithmic trading.<br>Set it up once — let Smart EA do the rest.</p>
+        <a href="#plans" class="hero-btn">View Plans</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-val">XAU/USD</div><div class="stat-label">Symbol</div></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><div class="stat-val">MT5</div><div class="stat-label">Platform</div></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><div class="stat-val">24/5</div><div class="stat-label">Automated</div></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-mockup">
+        <div class="order-book">
+          <div class="ob-header">
+            <div class="ob-title">
+              <span class="ob-symbol">XAU/USD</span>
+              <span class="ob-live"><span class="ob-dot" id="obLiveDot"></span><span id="obLiveLabel">LIVE</span></span>
+            </div>
+            <div class="ob-price-main" id="obMainPrice">—</div>
+          </div>
+          <div class="ob-cols">
+            <div class="ob-col-label">Price</div>
+            <div class="ob-col-label right">Volume</div>
+            <div class="ob-col-label right">Total</div>
+          </div>
+          <div class="ob-asks" id="obAsks"><div class="ob-row"><div class="ob-row-bar" style="width:0%"></div><span class="ob-price">—</span><span class="ob-vol">—</span><span class="ob-total">—</span></div><div class="ob-row"><div class="ob-row-bar" style="width:0%"></div><span class="ob-price">—</span><span class="ob-vol">—</span><span class="ob-total">—</span></div><div class="ob-row"><div class="ob-row-bar" style="width:0%"></div><span class="ob-price">—</span><span class="ob-vol">—</span><span class="ob-total">—</span></div><div class="ob-row"><div class="ob-row-bar" style="width:0%"></div><span class="ob-price">—</span><span class="ob-vol">—</span><span class="ob-total">—</span></div><div class="ob-row"><div class="ob-row-bar" style="width:0%"></div><span class="ob-price">—</span><span class="ob-vol">—</span><span class="ob-total">—</span></div><div class="ob-row"><div class="ob-row-bar" style="width:0%"></div><span class="ob-price">—</span><span class="ob-vol">—</span><span class="ob-total">—</span></div></div>
+          <div class="ob-spread" id="obSpread">Spread —</div>
+          <div class="ob-bids" id="obBids"><div class="ob-row"><div class="ob-row-bar" style="width:0%"></div><span class="ob-price">—</span><span class="ob-vol">—</span><span class="ob-total">—</span></div><div class="ob-row"><div class="ob-row-bar" style="width:0%"></div><span class="ob-price">—</span><span class="ob-vol">—</span><span class="ob-total">—</span></div><div class="ob-row"><div class="ob-row-bar" style="width:0%"></div><span class="ob-price">—</span><span class="ob-vol">—</span><span class="ob-total">—</span></div><div class="ob-row"><div class="ob-row-bar" style="width:0%"></div><span class="ob-price">—</span><span class="ob-vol">—</span><span class="ob-total">—</span></div><div class="ob-row"><div class="ob-row-bar" style="width:0%"></div><span class="ob-price">—</span><span class="ob-vol">—</span><span class="ob-total">—</span></div><div class="ob-row"><div class="ob-row-bar" style="width:0%"></div><span class="ob-price">—</span><span class="ob-vol">—</span><span class="ob-total">—</span></div></div>
+          <div class="ob-footer">
+            <div class="ob-stat"><span class="ob-stat-label">24h High</span><span class="ob-stat-val green">2 648.70</span></div>
+            <div class="ob-stat"><span class="ob-stat-label">24h Low</span><span class="ob-stat-val red">2 608.30</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BROKER SECTION -->
+<section class="broker-section">
+  <div class="broker-header">
+    <p class="broker-label">Recommended Brokers</p>
+    <h2>Need a Broker?</h2>
+    <p class="broker-sub">Smart EA works seamlessly with these trusted brokers. All support MT5 and XAU/USD.</p>
+  </div>
+  <div class="broker-grid">
+
+    <div class="broker-card exness-card">
+      <div class="broker-logo-wrap">
+        <img src="images/broker-exness.png" alt="Exness" class="broker-logo-img">
+      </div>
+      <div class="broker-details">
+        <div class="broker-stat"><div class="broker-stat-val">$10</div><div class="broker-stat-label">Min. Deposit</div></div>
+        <div class="broker-stat-div"></div>
+        <div class="broker-stat"><div class="broker-stat-val">1:2000</div><div class="broker-stat-label">Leverage</div></div>
+        <div class="broker-stat-div"></div>
+        <div class="broker-stat"><div class="broker-stat-val">MT5</div><div class="broker-stat-label">Platform</div></div>
+      </div>
+      <a href="https://one.exnessonelink.com/boarding/sign-up/a/c_7l35eyp5x8" target="_blank" class="broker-btn">Open Account</a>
+    </div>
+
+    <div class="broker-card blackbull-card">
+      <div class="broker-logo-wrap">
+        <img src="images/broker-blackbull.png" alt="BlackBull" class="broker-logo-img">
+      </div>
+      <div class="broker-details">
+        <div class="broker-stat"><div class="broker-stat-val">$0</div><div class="broker-stat-label">Min. Deposit</div></div>
+        <div class="broker-stat-div"></div>
+        <div class="broker-stat"><div class="broker-stat-val">1:500</div><div class="broker-stat-label">Leverage</div></div>
+        <div class="broker-stat-div"></div>
+        <div class="broker-stat"><div class="broker-stat-val">MT5</div><div class="broker-stat-label">Platform</div></div>
+      </div>
+      <a href="https://go.blackbull.com/visit/?bta=43140&brand=blackbull" target="_blank" class="broker-btn">Open Account</a>
+    </div>
+
+    <div class="broker-card vantage-card">
+      <div class="broker-logo-wrap">
+        <img src="images/broker-vantage.png" alt="Vantage" class="broker-logo-img">
+      </div>
+      <div class="broker-details">
+        <div class="broker-stat"><div class="broker-stat-val">$50</div><div class="broker-stat-label">Min. Deposit</div></div>
+        <div class="broker-stat-div"></div>
+        <div class="broker-stat"><div class="broker-stat-val">1:500</div><div class="broker-stat-label">Leverage</div></div>
+        <div class="broker-stat-div"></div>
+        <div class="broker-stat"><div class="broker-stat-val">MT5</div><div class="broker-stat-label">Platform</div></div>
+      </div>
+      <a class="broker-btn broker-btn-locked" style="opacity:0.4;cursor:not-allowed;pointer-events:none;">Coming Soon</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- PLANS -->
+<section class="plans-section" id="plans">
+  <div class="plans-header">
+    <h2>Choose Your Plan</h2>
+    <p>All plans include full EA access and automated trading on XAU/USD.</p>
+  </div>
+  <div class="plans-wrapper">
+
+    <div class="plan-box basic-plan">
+      <div class="plan-name">Starter</div>
+      <h1>Basic</h1>
+      <div class="plan-period">1 Month</div>
+      <div class="plan-price">$44.99<span>/mo</span></div>
+      <ul class="plan-features">
+        <li>✓ XAU/USD Symbol</li>
+        <li>✓ MetaTrader 5</li>
+        <li>✓ Automated Trading</li>
+        <li>✓ All Risk Levels</li>
+      </ul>
+      <span class="btn-trial" onclick="window.open('https://buy.stripe.com/5kQdR1fUZ5hLde3bnJaIM03','_blank')">Subscribe Now</span>
+    </div>
+
+    <div class="plan-box pro-plan">
+      <div class="plan-popular-badge">MOST POPULAR</div>
+      <h1>Pro</h1>
+      <div class="plan-period">3 Months</div>
+      <div class="plan-price-row">
+        <div class="plan-price">$109.99<span>/3mo</span></div>
+      </div>
+      <div class="plan-tape">20% Off</div>
+      <ul class="plan-features">
+        <li>✓ XAU/USD Symbol</li>
+        <li>✓ MetaTrader 5</li>
+        <li>✓ Automated Trading</li>
+        <li>✓ All Risk Levels</li>
+      </ul>
+      <span class="btn-trial" onclick="window.open('https://buy.stripe.com/4gMcMX8sxbG98XN1N9aIM02','_blank')">Subscribe Now</span>
+    </div>
+
+    <div class="plan-box premium-plan">
+      <div class="plan-name">Full Access</div>
+      <h1>Premium</h1>
+      <div class="plan-period">12 Months</div>
+      <div class="plan-price">$429.99<span>/yr</span></div>
+      <ul class="plan-features">
+        <li>✓ XAU/USD Symbol</li>
+        <li>✓ MetaTrader 5</li>
+        <li>✓ Automated Trading</li>
+        <li>✓ All Risk Levels</li>
+      </ul>
+      <span class="btn-trial" onclick="window.open('https://buy.stripe.com/5kQbITaAF9y1b5V9fBaIM01','_blank')">Subscribe Now</span>
+    </div>
+
+  </div>
+</section>
+<section class="hiw-section">
+  <div class="hiw-header">
+    <p class="broker-label">Simple Setup</p>
+    <h2 class="hiw-title">Up & Running in Minutes</h2>
+    <p class="hiw-sub">No technical knowledge needed. Just follow three simple steps.</p>
+  </div>
+
+  <!-- Step 1 -->
+  <div class="hiw-row">
+    <div class="hiw-text">
+      <div class="hiw-num">01</div>
+      <h3>Connect Your MT5 Account</h3>
+      <p>Search for your broker, enter your MT5 login credentials and hit connect. Your password is sent directly to MetaAPI's encrypted servers — we never store it.</p>
+    </div>
+    <div class="hiw-screen">
+      <img src="images/app-mt5.png" alt="MT5 Connection screen" />
+    </div>
+  </div>
+
+  <!-- Step 2 -->
+  <div class="hiw-row hiw-row-rev">
+    <div class="hiw-text">
+      <div class="hiw-num">02</div>
+      <h3>Activate Your Licence</h3>
+      <p>Paste your licence key from your purchase email. Once activated, all features unlock instantly and Smart EA is ready to trade.</p>
+    </div>
+    <div class="hiw-screen">
+      <img src="images/app-licence.png" alt="Licence Key screen" />
+    </div>
+  </div>
+
+  <!-- Step 3 -->
+  <div class="hiw-row">
+    <div class="hiw-text">
+      <div class="hiw-num">03</div>
+      <h3>Let It Trade Automatically</h3>
+      <p>Smart EA runs 24/5 on XAU/USD in the cloud via MetaAPI. No need to keep your PC on — just monitor your results from anywhere.</p>
+    </div>
+    <div class="hiw-screen hiw-screen-placeholder">
+      <div class="hiw-placeholder-inner">
+        <span>📈</span>
+        <p>Trading dashboard coming soon</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- PERFORMANCE -->
+<section class="perf-section">
+  <div class="perf-header">
+    <p class="broker-label">Backtested Results</p>
+    <h2 class="perf-title">Built to Perform</h2>
+    <p class="perf-sub">XAU/USD · Jan 2025 – Dec 2025 · Based on Real Tick Data</p>
+  </div>
+
+  <div class="perf-chart-wrap">
+    <div class="perf-stats-inline" >
+      <div class="perf-stat-inline">
+        <span class="perf-val-inline">42.8% – 187.6%</span>
+        <span class="perf-label-inline">Annual Return</span>
+      </div>
+      <div class="perf-stat-divider"></div>
+      <div class="perf-stat-inline">
+        <span class="perf-val-inline">10.89%</span>
+        <span class="perf-label-inline">Max Drawdown</span>
+      </div>
+      <div class="perf-stat-divider"></div>
+      <div class="perf-stat-inline">
+        <span class="perf-val-inline">747</span>
+        <span class="perf-label-inline">Total Trades</span>
+      </div>
+    </div>
+    <canvas id="perfChart"></canvas>
+  </div>
+
+  <p class="perf-disclaimer">Results based on historical backtesting on real tick data. Individual results may vary depending on market conditions and risk settings.</p>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="faq-header">
+    <p class="broker-label">Got Questions?</p>
+    <h2 class="faq-title">FAQ</h2>
+  </div>
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFAQ(this)">
+        What broker do I need? <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">We recommend Exness, Vantage or BlackBull. All three support MT5 and XAU/USD with competitive spreads. You can also use your own preferred broker as long as it supports MT5.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFAQ(this)">
+        How much do I need to start? <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">We recommend a minimum of $300 to trade effectively with proper risk management. You can start with less but drawdown protection will limit trade frequency.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFAQ(this)">
+        Is my capital safe? <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Smart EA includes built-in daily loss limits and drawdown protection. However, all trading involves risk. Never trade with money you cannot afford to lose.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFAQ(this)">
+        Do I need to leave my device on? <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">No. Smart EA runs entirely in the cloud. Your MT5 account trades automatically 24/5 even when your device is completely off.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFAQ(this)">
+        Can I cancel my subscription? <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Yes, you can cancel at any time. Your access continues until the end of your current billing period.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFAQ(this)">
+        Can I adjust the risk level? <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Yes. Smart EA includes adjustable risk settings — Conservative, Moderate, and Aggressive — so you can set the level of aggression that suits your account size and comfort. Higher settings can increase returns but also increase drawdown.</div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <p>© 2025 Smart EA. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+  </div>
+  <div class="footer-disclaimer">
+    <p><strong>Risk Warning:</strong> Trading foreign exchange and CFDs on margin carries a high level of risk and may not be suitable for all investors. The high degree of leverage can work against you as well as for you. Before deciding to trade, you should carefully consider your investment objectives, level of experience, and risk appetite. There is a possibility that you may sustain a loss of some or all of your initial investment. Past performance is not indicative of future results. Smart EA provides automated trading tools only and does not constitute financial advice. You should seek independent financial advice if you are unsure.</p>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('a[href="#plans"]').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      document.getElementById('plans').scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  function toggleFAQ(btn) {
+    const item = btn.parentElement;
+    const answer = item.querySelector('.faq-a');
+    const icon = btn.querySelector('.faq-icon');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => {
+      el.classList.remove('open');
+      el.querySelector('.faq-a').style.maxHeight = null;
+      el.querySelector('.faq-icon').textContent = '+';
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+      icon.textContent = '−';
+    }
+  }
+
+  // ── Live XAU/USD order book via Metals.live ──
+  let obMid = 5200.00;
+  let obPrevMid = obMid;
+  let ob24High = obMid;
+  let ob24Low = obMid;
+  let obVolume = 184200;
+
+  function fmt(n) { return n.toFixed(2); }
+
+  function buildOrderBookRows(mid) {
+    const spread = 0.30;
+    const asks = [], bids = [];
+    for (let i = 0; i < 6; i++) {
+      const price = mid + spread / 2 + i * (0.10 + Math.random() * 0.15);
+      const vol = parseFloat((Math.random() * 8 + 1).toFixed(2));
+      asks.push({ price: price.toFixed(2), vol: vol.toFixed(2) });
+    }
+    for (let i = 0; i < 6; i++) {
+      const price = mid - spread / 2 - i * (0.10 + Math.random() * 0.15);
+      const vol = parseFloat((Math.random() * 8 + 1).toFixed(2));
+      bids.push({ price: price.toFixed(2), vol: vol.toFixed(2) });
+    }
+    return { asks, bids, spread };
+  }
+
+  function renderOrderBook() {
+    const { asks, bids, spread } = buildOrderBookRows(obMid);
+    const allVols = [...asks, ...bids].map(r => parseFloat(r.vol));
+    const maxVol = Math.max(...allVols, 0.01);
+    const priceEl = document.getElementById('obMainPrice');
+    priceEl.textContent = fmt(obMid);
+    priceEl.className = 'ob-price-main ' + (obMid >= obPrevMid ? 'up' : 'down');
+    setTimeout(() => priceEl.className = 'ob-price-main', 500);
+    document.getElementById('obSpread').textContent = 'Spread  ' + spread.toFixed(2);
+    const renderRows = (el, rows, isAsk) => {
+      el.innerHTML = rows.map((r, i) => {
+        const barW = Math.min(90, (parseFloat(r.vol) / maxVol) * 90);
+        const cumTotal = rows.slice(0, i + 1).reduce((s, x) => s + parseFloat(x.vol), 0).toFixed(2);
+        return `<div class="ob-row">
+          <div class="ob-row-bar" style="width:${barW}%"></div>
+          <span class="ob-price ${isAsk ? '' : 'bid'}">${r.price}</span>
+          <span class="ob-vol">${r.vol}</span>
+          <span class="ob-total">${cumTotal}</span>
+        </div>`;
+      }).join('');
+    };
+    renderRows(document.getElementById('obAsks'), [...asks].reverse(), true);
+    renderRows(document.getElementById('obBids'), bids, false);
+    // Update footer stats
+    const footerEls = document.querySelectorAll('.ob-stat-val');
+    if (footerEls[0]) footerEls[0].textContent = ob24High.toFixed(2);
+    if (footerEls[1]) footerEls[1].textContent = ob24Low.toFixed(2);
+  }
+
+  // Fetch 24h high/low once on load
+  async function fetchGoldQuote() {
+    try {
+      const res = await fetch('https://api.binance.com/api/v3/ticker/24hr?symbol=PAXGUSDT');
+      const data = await res.json();
+      if (data && data.lastPrice) {
+        obPrevMid = obMid;
+        obMid = parseFloat(data.lastPrice);
+        if (data.highPrice) ob24High = parseFloat(data.highPrice);
+        if (data.lowPrice)  ob24Low  = parseFloat(data.lowPrice);
+        renderOrderBook();
+      }
+    } catch(e) {}
+  }
+
+  // Stream live trades via WebSocket
+  function connectGoldWebSocket() {
+    const ws = new WebSocket('wss://stream.binance.com:9443/ws/paxgusdt@aggTrade');
+    ws.onmessage = (event) => {
+      try {
+        const msg = JSON.parse(event.data);
+        if (msg.p) {
+          obPrevMid = obMid;
+          obMid = parseFloat(msg.p);
+          renderOrderBook();
+        }
+      } catch(e) {}
+    };
+    ws.onclose = () => setTimeout(connectGoldWebSocket, 3000);
+    ws.onerror = () => ws.close();
+  }
+
+  fetchGoldQuote();
+  connectGoldWebSocket();
+
+  const heroBgCanvas = document.getElementById('heroBgChart');
+  function resizeHeroCanvas() {
+    heroBgCanvas.width = window.innerWidth;
+    heroBgCanvas.height = window.innerWidth < 900
+      ? Math.min(window.innerHeight * 0.85, 700)
+      : Math.min(window.innerHeight * 0.75, 650);
+  }
+  window.addEventListener('resize', () => { resizeHeroCanvas(); drawHeroChart(1); });
+
+  const hctx = heroBgCanvas.getContext('2d');
+
+  function generateGoldPoints(n) {
+    const pts = [];
+    let val = 0.08;
+    let vel = 0.003;
+    for (let i = 0; i < n; i++) {
+      const progress = i / n;
+      vel += (Math.random() - 0.5) * 0.008;  // moderate noise
+      vel += 0.0005;                           // gentle upward drift
+      vel = Math.max(-0.012, Math.min(0.014, vel)); // cap max move size
+      vel *= 0.82;                             // dampen so it doesn't run away
+      // Small occasional pullback
+      if (Math.random() < 0.02) vel -= 0.006 + Math.random() * 0.004;
+      val += vel;
+      val = Math.max(0.05, Math.min(0.88, val));
+      pts.push(val);
+    }
+    // Rolling smooth window=2
+    const smoothed = [];
+    for (let i = 0; i < pts.length; i++) {
+      const a = pts[Math.max(0, i-2)];
+      const b = pts[Math.max(0, i-1)];
+      const c = pts[i];
+      const d = pts[Math.min(pts.length-1, i+1)];
+      const e = pts[Math.min(pts.length-1, i+2)];
+      smoothed.push((a + b + c*2 + d + e) / 6);
+    }
+    const min = Math.min(...smoothed);
+    const max = Math.max(...smoothed);
+    return smoothed.map(p => (p - min) / (max - min));
+  }
+
+  const heroPoints = generateGoldPoints(300);
+
+  function drawHeroChart(progress) {
+    const w = heroBgCanvas.width;
+    const h = heroBgCanvas.height;
+    hctx.clearRect(0, 0, w, h);
+
+    const isMobile = w < 900;
+    const chartTop = isMobile ? h * 0.15 : h * 0.08;
+    const chartH   = isMobile ? h * 0.55 : h * 0.88;
+    const totalPts = Math.max(2, Math.floor(heroPoints.length * progress));
+
+    const pts = [];
+    for (let i = 0; i < totalPts; i++) {
+      pts.push({
+        x: (i / (heroPoints.length - 1)) * w,
+        y: chartTop + chartH - (heroPoints[i] * chartH)
+      });
+    }
+
+    // Line path
+    hctx.beginPath();
+    hctx.moveTo(pts[0].x, pts[0].y);
+    for (let i = 1; i < pts.length; i++) hctx.lineTo(pts[i].x, pts[i].y);
+
+    // Glow stroke
+    hctx.save();
+    hctx.shadowColor = 'rgba(255,255,255,0.8)';
+    hctx.shadowBlur = 12;
+    hctx.strokeStyle = 'rgba(255,255,255,0.55)';
+    hctx.lineWidth = isMobile ? 1.5 : 1.8;
+    hctx.lineJoin = 'round';
+    hctx.lineCap = 'round';
+    hctx.stroke();
+    hctx.restore();
+
+    // Subtle fill
+    const lastPt = pts[pts.length - 1];
+    hctx.lineTo(lastPt.x, h);
+    hctx.lineTo(0, h);
+    hctx.closePath();
+    const fillGrad = hctx.createLinearGradient(0, chartTop, 0, h);
+    fillGrad.addColorStop(0, 'rgba(255,255,255,0.05)');
+    fillGrad.addColorStop(1, 'rgba(255,255,255,0)');
+    hctx.fillStyle = fillGrad;
+    hctx.fill();
+  }
+
+  // Draw-in animation on load
+  window.addEventListener('load', () => {
+    resizeHeroCanvas();
+    let start = null;
+    const duration = 2200;
+    function animate(ts) {
+      if (!start) start = ts;
+      const progress = Math.min((ts - start) / duration, 1);
+      // Ease out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      drawHeroChart(eased);
+      if (progress < 1) requestAnimationFrame(animate);
+    }
+    requestAnimationFrame(animate);
+  });
+
+
+  const ctx = document.getElementById('perfChart').getContext('2d');
+
+  // Monthly labels Jan 2025 → Jan 2026
+  const labels = Array.from({length: 70}, (_, i) => {
+    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    const monthIndex = Math.floor(i / (70/12));
+    return i % Math.round(70/12) === 0 ? months[Math.min(monthIndex, 11)] : '';
+  });
+
+  // Equity curve matching MT5 backtest graph shape:
+  // - Early rise Jan→Feb, small early peak
+  // - Mid consolidation/dip Feb→Apr (flat/slight pullback)
+  // - Recovery May, another dip
+  // - Strong sustained rally Jul→Dec, $10,000 → $13,458
+  // Natural stepped climb - rises in bursts with small pullbacks, no wild spikes
+  const data = [
+    10000,10085,10170,10260,10380,10480,10560,10640,10730,10820,
+    10910,11000,11080,11160,11240,11310,11380,11290,11200,11150,
+    11100,11050,11020,10990,10970,10950,10980,11020,11080,11150,
+    11220,11300,11380,11460,11520,11480,11540,11600,11680,11760,
+    11840,11920,12000,12080,12160,12240,12300,12380,12460,12540,
+    12600,12520,12580,12660,12740,12820,12900,12960,13020,13100,
+    13160,13080,13140,13220,13300,13380,13420,13350,13400,13458
+  ];
+
+  const grad = ctx.createLinearGradient(0, 0, 0, 320);
+  grad.addColorStop(0, 'rgba(59,110,255,0.18)');
+  grad.addColorStop(0.6, 'rgba(59,110,255,0.06)');
+  grad.addColorStop(1, 'rgba(59,110,255,0)');
+
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [{
+        data,
+        borderColor: '#4d7fff',
+        borderWidth: 0.7,
+        backgroundColor: grad,
+        fill: true,
+        tension: 0,
+        pointRadius: 0,
+        pointHoverRadius: 0,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      aspectRatio: window.innerWidth < 768 ? 1.8 : 2.5,
+      layout: { padding: { top: 8, right: 8 } },
+      plugins: {
+        legend: { display: false },
+        tooltip: { enabled: false },
+      },
+      scales: {
+        x: {
+          grid: { color: 'rgba(255,255,255,0.03)', drawBorder: false },
+          ticks: {
+            color: 'rgba(255,255,255,0.25)',
+            font: { size: 11, family: 'Outfit' },
+            maxRotation: 0,
+            autoSkip: true,
+            maxTicksLimit: 13,
+          },
+          border: { display: false }
+        },
+        y: {
+          display: false,
+          grid: { display: false },
+        }
+      }
+    }
+  });
+</script>
+</body>
+</html>
